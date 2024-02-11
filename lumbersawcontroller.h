@@ -2,12 +2,14 @@
 #define LUMBERSAWCONTROLLER_H
 
 #include <QObject>
+#include <qqml.h>
 
 class LumberSawController : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool isWorking READ isWorking NOTIFY isWorkingChanged FINAL)
     Q_PROPERTY(int sawSpeed READ sawSpeed WRITE setSawSpeed NOTIFY sawSpeedChanged FINAL)
+    QML_ELEMENT
 
 public:
     explicit LumberSawController(QObject *parent = nullptr);
@@ -23,7 +25,6 @@ public slots:
 
 signals:
     void isWorkingChanged();
-
     void sawSpeedChanged();
 
 private:
